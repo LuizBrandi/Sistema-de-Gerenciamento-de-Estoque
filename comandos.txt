@@ -1,0 +1,13 @@
+inicia server
+python3 manage.py runserver
+
+inicia migração
+python3 manage.py makemigrations
+
+realiza migração
+python3 manage.py migrate
+
+cria superusuario
+python3 manage.py createsuperuser
+
+senha: luiz1234

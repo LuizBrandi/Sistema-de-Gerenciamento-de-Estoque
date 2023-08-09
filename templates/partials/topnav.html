@@ -1,0 +1,58 @@
+<!--Topside-->
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-white" style="background-color: #3F3F3F;">
+                    Informações
+                </div>
+                <div class="card-body">
+                    <!-- {% for message in messages %}
+                    {% if message %}
+                    <marquee behavior="" direction="">
+                        <h3 class="my-4"> {{ message }} </h3>
+                    </marquee>             
+                    </div>
+                    {% endif %}
+                    {% endfor %} -->
+                    <marquee behavior="" direction="">
+                        <h3 class="my-4"> Seja bem-vindo! </h3>
+                    </marquee>  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-white" style="background-color: #3F3F3F;">
+                    Operações
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a class="text-decoration-none text-dark" href="{% url 'dashboard-mercadorias' %}">
+                                <div class="card my-card shadow text-center p-3">
+                                    <h4>Mercadorias <i class="fas fa-users"></i></h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="text-decoration-none text-dark" href="{% url 'dashboard-movimentacao' %}">
+                                <div class="card my-card shadow text-center p-3">
+                                    <h4>Movimentação <i class="fas fa-box"></i></h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="text-decoration-none text-dark" href="{% url 'dashboard-relatorio' %}">
+                                <div class="card my-card shadow text-center p-3">
+                                    <h4>Relatórios <i class="fas fa-shipping-fast"></i></h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Topside-->

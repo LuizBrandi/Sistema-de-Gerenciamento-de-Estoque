@@ -1,0 +1,28 @@
+{% extends 'partials/base.html' %}
+{% block title %} Registrar Saida {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="border bg-white p-3">
+                <div class="h3">
+                    Registrar Saida 
+                </div>
+                <hr>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <a class="btn btn-secondary" href="{% url 'dashboard-movimentacao' %}">Cancelar</a>
+                    <input class="btn btn-danger" type="submit" value="Confirmar">
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

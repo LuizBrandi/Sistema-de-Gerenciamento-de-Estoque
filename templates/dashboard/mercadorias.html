@@ -1,0 +1,78 @@
+{% extends 'partials/base.html' %}
+{% block title %} Mercadorias {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<!--Table-->
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-4">
+            {% for message in messages %}
+                {% if 'red' in message.tags %}
+                    <div class="alert alert-danger">
+                        {{ message }}
+                    </div>
+                {% endif %}
+
+                {% if 'blue' in message.tags %}
+                    <div class="alert alert-info">
+                        {{ message }}
+                    </div>
+                {% endif %}
+
+                {% if 'green' in message.tags %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <div class="border bg-white p-3">
+                <h4>Adiçao de Mercadoria</h4>
+                <hr>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input class="btn btn-success btn-block" type="submit" value="Adicionar">
+
+                </form>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <table class="table bg-white">
+                <thead style="background-color: #3F3F3F;">
+                    <tr class="text-white">
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Fabricante</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <th scope="row">{{ item.id }}</th>
+                        <td>{{ item.nome }}</td>
+                        <td>{{ item.tipo }}</td>
+                        <td>{{ item.fabricante }}</td>
+                        <td>{{ item.descricao }}</td>
+                        <td>
+                            <a class="btn btn-info btn-sm" href="{% url 'dashboard-mercadoria-update' item.id %}">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'dashboard-mercadoria-delete' item.id %}">Remover</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<!--End Table-->
+
+{% endblock %}
+
